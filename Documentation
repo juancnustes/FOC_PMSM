@@ -1,0 +1,19 @@
+Find in this document step step by step to reproduce the motor simulation for different input scenarios:
+
+1) The first step is to run the script "Motor_script.m" in order to load the model parameters.
+
+2) Open the simulink model "FOCsimulation.slx"
+  Inside this Simulink file, you will find three main blocks:
+    -Input: The pre-set inputs are designed and labled with their required simulation time and grouped in [Step, Ramp, Random, Generated]
+    -FOC: Here is the model of the FOC control scheme and where the scope is placed to verify the speed tracking of the motor control
+    -Motor/Inverter Model: Hrre is the inverter and motor model which is parametrized via "Motor-script"
+    
+3) In the input block, manually connect the desired input shape to the input conditioning block.
+    Inside the "Generated input shape" block, there are some pre-built test cases with their specific simulation time [Ts=value]
+    
+4) Set the simulation time for the selected input
+5) Open the "Speed tracking scope"
+6) Run the simulation
+
+To generate a dataset. store the "simout" signal values in an array
+  (array = out.simout.signals.values;)
